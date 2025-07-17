@@ -16,7 +16,7 @@ fn get_styles() -> Styles {
 #[derive(Debug, Parser)]
 #[command(
     name = "ee3.lol",
-    about = "EE3 CLI Tool - I made this for fun :3",
+    about = "EE3 CLI Tool - Stuff I prefer (until it breaks).",
     version = "0.1.0",
     styles = get_styles(),
     disable_help_subcommand = true,
