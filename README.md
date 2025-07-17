@@ -1,6 +1,10 @@
 # 🚀 EE3 CLI Tool
 
-A modern, user-friendly command-line interface tool built with Rust. This project is designed to be fast, reliable, and easy to use across different operating systems.
+A CLI tool built with all the tools and tech I swear by (until they break and I cry into my keyboard). It’s fast, kinda smart, and occasionally does exactly what I expect it to.
+
+Built for developers who love clean workflows, efficient commands, and pretending everything is under control.
+
+Use it. Break it. Blame the tool. Repeat.
 
 ## ✨ Features
 
