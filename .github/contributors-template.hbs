@@ -1,0 +1,55 @@
+<!-- Contributors START -->
+<style>
+  .contributor-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #2f80ed;
+    transition: transform 0.3s ease;
+  }
+  .contributor-avatar:hover {
+    transform: scale(1.1);
+  }
+  .contributor-cell {
+    padding: 10px;
+    text-align: center;
+  }
+  .contributor-name {
+    margin: 5px 0 0;
+    font-weight: 600;
+  }
+  .contributors-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+</style>
+
+<div id="contributors-container">
+  <div class="contributors-table">
+    {{#each contributors}}
+    <div class="contributor-cell">
+      <a href="{{html_url}}" target="_blank">
+        <img 
+          class="contributor-avatar"
+          src="{{avatar_url}}" 
+          alt="{{login}}"
+          title="{{login}}"
+          loading="lazy"
+        />
+        <p class="contributor-name">{{login}}</p>
+      </a>
+      <a href="https://github.com/ee3lol/ee3-cli/commits?author={{login}}" title="Code">
+        {{#if contributions}}
+          {{contributions}}
+        {{else}}
+          💻
+        {{/if}}
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</div>
+<!-- Contributors END -->

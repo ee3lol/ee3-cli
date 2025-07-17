@@ -1,0 +1,37 @@
+name: Update Contributors
+
+on:
+  schedule:
+    # Run at 00:00 UTC every Sunday
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  update-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Update contributors
+        uses: BobAnkh/auto-generate-changelog@v1.1
+        with:
+          output: 'README.md'
+          template: 'contributors'
+          user: 'ee3lol'
+          repository: 'ee3-cli'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude: 'dependabot[bot]'
+          max_contributors: 50
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'docs: update contributors [skip ci]' && git push)
