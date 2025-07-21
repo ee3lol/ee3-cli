@@ -1,9 +1,10 @@
 mod commands;
+mod shell;
 
 use clap::{CommandFactory, Parser};
 use clap::builder::styling::{AnsiColor, Styles};
 
-use crate::commands::{Command, new_execute};
+use crate::commands::{Command, new_execute, init_execute, mkcd_execute};
 
 fn get_styles() -> Styles {
     Styles::styled()
@@ -48,6 +49,14 @@ fn handle_command(cmd: Command) -> Result<(), String> {
     match cmd {
         Command::New { name } => {
             new_execute(&name)
+                .map_err(|e| e.to_string())
+        },
+        Command::Init => {
+            init_execute()
+                .map_err(|e| e.to_string())
+        },
+        Command::Mkcd { path } => {
+            mkcd_execute(&path)
                 .map_err(|e| e.to_string())
         },
         Command::Help => {

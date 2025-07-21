@@ -1,109 +1,89 @@
 # 🚀 EE3 CLI Tool
 
-A CLI tool built with all the tools and tech I swear by (until they break and I cry into my keyboard). It’s fast, kinda smart, and occasionally does exactly what I expect it to.
-
-Built for developers who love clean workflows, efficient commands, and pretending everything is under control.
-
-Use it. Break it. Blame the tool. Repeat.
+A powerful CLI tool built with Rust that helps developers be more productive with smart shell integration and useful utilities.
 
 ## ✨ Features
 
-- 🎯 Simple and intuitive commands
-- 🚀 Blazing fast performance
-- 🛠️ Cross-platform support (Windows, macOS, Linux)
-- 🔌 Extensible architecture
-- 🎨 Beautiful terminal output
+- 🚀 **Smart Shell Integration** - Automatically detects and configures your shell (Zsh, Bash, Fish)
+- 📁 **Directory Management** - Create and navigate to directories in one command with `mkcd`
+- 🛠️ **Cross-platform** - Works on Windows, macOS, and Linux
+- ⚡ **Blazing Fast** - Built with Rust for maximum performance
+- 🔌 **Extensible** - Easy to add new commands and functionality
 
-## 📦 Installation
+## 🛠 Development
 
 ### Prerequisites
 
 - Rust (latest stable version recommended)
 - Cargo (Rust's package manager)
 
-#### Windows
+### Building from Source
 
-1. **Install Rust**
-   - Download and run the installer from [rustup.rs](https://rustup.rs/)
-   - Or using Chocolatey:
-     ```powershell
-     choco install rustup
-     ```
-
-2. **Clone the repository**
-   ```powershell
-   git clone https://github.com/ee3lol/ee3-cli.git
-   cd ee3-cli
-   ```
-
-3. **Build and install**
-   ```powershell
-   cargo install --path .
-   ```
-
-#### macOS
-
-1. **Install Rust**
-   ```bash
-   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-   ```
-   Follow the on-screen instructions to add Rust to your PATH.
-
-2. **Clone the repository**
+1. Clone the repository:
    ```bash
    git clone https://github.com/ee3lol/ee3-cli.git
    cd ee3-cli
    ```
 
-3. **Build and install**
+2. Build in development mode:
    ```bash
-   cargo install --path .
+   cargo build
    ```
 
-#### Linux
-
-1. **Install Rust**
+3. Run the built binary:
    ```bash
-   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-   ```
-   Follow the on-screen instructions to add Rust to your PATH.
-
-2. **Install build dependencies**
-   - For Debian/Ubuntu:
-     ```bash
-     sudo apt update
-     sudo apt install -y build-essential
-     ```
-   - For Fedora:
-     ```bash
-     sudo dnf groupinstall "Development Tools"
-     ```
-
-3. **Clone the repository**
-   ```bash
-   git clone https://github.com/ee3lol/ee3-cli.git
-   cd ee3-cli
+   cargo run -- --help
    ```
 
-4. **Build and install**
-   ```bash
-   cargo install --path .
-   ```
-
-## 🚀 Usage
+### Running Tests
 
 ```bash
+cargo test
+```
+
+### Linting
+
+```bash
+cargo clippy
+```
+
+### Formatting
+
+```bash
+cargo fmt
+```
+
+## 🚀 Getting Started
+
+### Installation
+
+1. **Install Rust** (if you haven't already):
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ```
+
+2. **Install EE3 CLI**:
+   ```bash
+   cargo install --git https://github.com/ee3lol/ee3-cli.git
+   ```
+
+3. **Initialize shell integration**:
+   ```bash
+   ee3 init
+   source ~/.zshrc  # or ~/.bashrc, ~/.config/fish/config.fish
+   ```
+
+## 🛠 Usage
+
+```bash
+# Initialize shell integration (required for mkcd)
+ee3 init
+
+# Create and navigate to a new directory
+ee3 mkcd new-project
+
 # Show help
-$ ee3 --help
-
-# Display version
-$ ee3 -v
-
-# Create a new project
-$ ee3 new my-awesome-project
-
-# Show help for a specific command
-$ ee3 help new
+ee3 --help
 ```
 
 ## 🛠 Development
@@ -156,48 +136,21 @@ Contributions are welcome! Please follow these steps:
 
 ## 👥 Contributors
 
-Thanks goes to these wonderful people:
+Thanks to these amazing people who have contributed to the project:
 
-<!-- Contributors START -->
-<style>
-  .contributor-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #2f80ed;
-    transition: transform 0.3s ease;
-  }
-  .contributor-avatar:hover {
-    transform: scale(1.1);
-  }
-  .contributor-cell {
-    padding: 10px;
-    text-align: center;
-  }
-  .contributor-name {
-    margin: 5px 0 0;
-    font-weight: 600;
-  }
-</style>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/ee3lol"><img src="https://avatars.githubusercontent.com/u/ee3lol" width="100px;" alt=""/><br /><sub><b>EE3</b></sub></a><br /><a href="https://github.com/ee3lol/ee3-cli/commits?author=ee3lol" title="Code">💻</a></td>
+  </tr>
+</table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
-<div id="contributors-container">
-  <!-- This will be populated by the GitHub Action -->
-  <p>Loading contributors...</p>
-</div>
-
-<!-- This script will be used to fetch and display contributors -->
-<script>
-  // This script will be replaced by the GitHub Action
-  // It's here just as a fallback for local viewing
-  const contributors = [
-    {
-      login: 'ee3lol',
-      html_url: 'https://github.com/ee3lol',
-      avatar_url: 'https://github.com/ee3lol.png',
-      contributions: '💻'  // Default emoji for now
-    }
-  ];
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
   
   const container = document.getElementById('contributors-container');
   if (container) {
